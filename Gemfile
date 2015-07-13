@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'activeadmin', github: 'activeadmin'
 gem 'bower-rails'
 gem 'devise'
 gem 'rails', '4.2.0'
