@@ -1,0 +1,82 @@
+$money-green: #6CC552;
+$white: #ffffff;
+$light-grey: #ccc;
+
+.bet-panel {
+  position: relative;
+
+  .player-icon-wrapper {
+    float: left; width: 50px;
+    .player-icon {
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+      border-radius: 20px;
+      position: relative;
+      img {
+        min-height: 40px;
+        height: 100%;
+        position: absolute;
+        top: -9999px; right: -9999px; bottom: -9999px; left: -9999px;
+        margin: auto;
+        display: block;
+      }
+    }
+  }
+
+  .bet-content-wrapper {
+    float: left;
+    .player-info {
+      display: block;
+      width: 100%;
+      .player-name {
+        font-weight: bold;
+        float: left;
+      }
+
+      .player-details {
+        font-style: italic;
+        font-size: .9em;
+        margin-top: 2px;
+        float: left;
+
+        .player-position {
+          margin-left: 10px;
+          float: left;
+        }
+        .player-team {
+          padding-left: 5px; margin-left: 5px;
+          border-left: 1px solid $light-grey;
+          float: left;
+        }
+      }
+    }
+
+    .bet-metrics {
+      .bet-statement {
+        .bet-more-less {
+          &.bet-greater-than {
+            color: $money-green;
+          }
+        }
+
+        .bet-numerical-metric {
+          font-weight: bold;
+        }
+      }
+    }
+
+  }
+
+  .bet-amount {
+    float: right;
+    background: $money-green;
+    width: 40px; height: 40px;
+    border-radius: 20px;
+    color: $white;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    padding: .4em;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1), inset 1px 1px 1px rgba(255,255,255,.2);
+  }
+}

@@ -1,1 +1,99 @@
-test
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} StatBet
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            My Bets
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Active Bets
+            %li
+              %a{:href => "#"} Completed Bets
+            %li
+              %a{:href => "#"} Friends
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#"} Profile
+        %li
+          %a{:href => '#'} Sign Out
+
+.container-fluid
+  .bet-panel.panel.panel-bet.clearfix
+    .player-icon-wrapper
+      .player-icon
+        = image_tag 'mock/peyton.jpg'
+
+    .bet-content-wrapper
+      .player-info.clearfix
+        .player-name
+          Peyton Manning
+        .player-details
+          .player-position
+            QB
+          .player-team
+            DEN
+      .bet-metrics.clearfix
+        .bet-statement.clearfix
+          will earn
+          %span.bet-more-less.bet-greater-than
+            more than
+          %span.bet-numerical-metric
+            400
+          %span.bet-metric-unit
+          passing yards
+
+    .user-information
+      posted by:
+      %a.user-link{:href => '#'} seanwooj
+
+    .bet-status.open
+      open
+    .bet-week
+      Week 1
+    .bet-amount
+      $10
+  .bet-panel.panel.panel-bet.clearfix
+    .player-icon-wrapper
+      .player-icon
+        = image_tag 'mock/peyton.jpg'
+
+    .bet-content-wrapper
+      .player-info.clearfix
+        .player-name
+          Peyton Manning
+        .player-details
+          .player-position
+            QB
+          .player-team
+            DEN
+      .bet-metrics.clearfix
+        .bet-statement.clearfix
+          will earn
+          %span.bet-more-less.bet-greater-than
+            more than
+          %span.bet-numerical-metric
+            400
+          %span.bet-metric-unit
+          passing yards
+
+    .user-information
+      posted by:
+      %a.user-link{:href => '#'} seanwooj
+
+    .bet-status.open
+      open
+    .bet-week
+      Week 1
+    .bet-amount
+      $10

@@ -12,3 +12,6 @@
 //
 //= require jquery
 //= require_tree .
+
+// Vendored
+//= require bootstrap/js/collapse
