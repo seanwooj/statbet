@@ -11,15 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715113444) do
+ActiveRecord::Schema.define(version: 20150720142615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "bets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.float    "amount"
+    t.integer  "game_id"
+    t.integer  "player_id"
+    t.string   "bet_metric"
+    t.integer  "start_week_id"
+    t.integer  "end_week_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -61,6 +67,13 @@ ActiveRecord::Schema.define(version: 20150715113444) do
   create_table "wallets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.date   "week_start"
+    t.date   "week_end"
+    t.string "state"
+    t.string "name"
   end
 
 end
