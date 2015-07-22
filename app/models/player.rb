@@ -3,7 +3,8 @@ class Player < ActiveRecord::Base
 
   # TODO - need to add validation to ensure player position is within some subset
   # of positions that are set.
-  validates_presence_of :name
+  validates_presence_of :first_name
+  validates_presence_of :last_name
   validates_presence_of :position
 
 end
