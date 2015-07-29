@@ -1,3 +1,5 @@
 = form_for @bet do |f|
   = f.collection_select :player_id, Player.all, :id, :full_name
+  will earn
+  = f.select :bet_metric, Bet::ALL_METRICS
   = f.number_field :amount

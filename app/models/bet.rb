@@ -7,6 +7,8 @@ class Bet < ActiveRecord::Base
   # validate that the player chosen for the bet plays during the selected week
   # some more validations
 
+  validates :comparison, :inclusion => { :in => ["more_than", "less_than"] }
+
   belongs_to :player
   belongs_to :game
   belongs_to :end_week, :class => 'Week', :foreign_key => 'end_week_id'
@@ -34,7 +36,7 @@ class Bet < ActiveRecord::Base
     :rushing_yards,
     :average_yards_per_carry,
     :rushing_touchdowns,
-    :longest_run
+    :longest_run,
     :fumbles_lost
   ]
 
@@ -47,6 +49,12 @@ class Bet < ActiveRecord::Base
     :longest_reception,
     :fumbles_lost
   ]
+
+  ALL_METRICS = (QB_BET_METRICS + RB_BET_METRICS + WR_TE_BET_METRICS).uniq
+
+
+  # Available Comparisons
+  COMPARISONS = [:more_than, :less_than]
 
 
 end
