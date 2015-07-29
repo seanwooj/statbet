@@ -15,4 +15,38 @@ class Bet < ActiveRecord::Base
   belongs_to :challenger, :class => 'User', :foreign_key => 'challenger_id'
 
 
+  # These are the metrics that are available based on the player's position
+
+  # Quarterback Metrics
+  QB_BET_METRICS = [
+    :completions,
+    :passing_yards,
+    :passing_touchdowns,
+    :interceptions_thrown,
+    :sacks,
+    :fumbles_lost,
+    :passer_rating
+  ]
+
+  # Runningback Metrics
+  RB_BET_METRICS = [
+    :carries,
+    :rushing_yards,
+    :average_yards_per_carry,
+    :rushing_touchdowns,
+    :longest_run
+    :fumbles_lost
+  ]
+
+  # Wide Receiver and Tight End Metrics
+  WR_TE_BET_METRICS = [
+    :receptions,
+    :receiving_yards,
+    :average_yards_per_reception,
+    :receiving_touchdowns,
+    :longest_reception,
+    :fumbles_lost
+  ]
+
+
 end
