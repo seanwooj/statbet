@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727131022) do
+ActiveRecord::Schema.define(version: 20150729062404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150727131022) do
     t.string   "bet_metric"
     t.integer  "start_week_id"
     t.integer  "end_week_id"
+    t.integer  "challenger_id"
+    t.integer  "creator_id"
   end
 
   create_table "broadcast_networks", force: :cascade do |t|
