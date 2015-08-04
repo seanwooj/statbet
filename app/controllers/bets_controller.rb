@@ -10,7 +10,7 @@ class BetsController < ApplicationController
   end
 
   def appropriate_bet_metrics
-    @metrics = Player.get_appropriate_metric(params[:player_type])
+    @metrics = Bet.get_appropriate_metric(params[:player_type])
 
     respond_to do |format|
       format.json { render :json => @metrics }
