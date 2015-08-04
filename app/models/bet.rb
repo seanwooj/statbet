@@ -55,5 +55,20 @@ class Bet < ActiveRecord::Base
   # Available Comparisons
   COMPARISONS = [:more_than, :less_than]
 
+  def self.get_appropriate_metric(player_position)
+    case player_position
+    when 'QB'
+      return QB_BET_METRICS
+    when 'RB'
+      return RB_BET_METRICS
+    when 'WR'
+      return WR_TE_BET_METRICS
+    when 'TE'
+      return WR_TE_BET_METRICS
+    else
+      return ALL_METRICS
+    end
+  end
+
 
 end

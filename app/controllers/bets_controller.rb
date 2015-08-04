@@ -5,9 +5,16 @@ class BetsController < ApplicationController
   end
 
   def create
-    byebug
     @bet = Bet.create!(bet_params)
     redirect_to new_bet_path
+  end
+
+  def appropriate_bet_metrics
+    @metrics = Player.get_appropriate_metric(params[:player_type])
+
+    respond_to do |format|
+      format.json { render :json => @metrics }
+    end
   end
 
   private

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   root :to => 'static#test'
 
   resources :bets, :only => [:new, :create]
+  resources :players, :only => [:index]
+  resources :teams, :only => [:show]
 end
