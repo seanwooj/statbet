@@ -2,7 +2,7 @@ var Statbet = Statbet || {};
 
 (function() {
 	'use strict';
-	
+
 	Statbet.BetFormView = Backbone.Marionette.ItemView.extend({
 		template: JST['bets/bet_form'],
 
@@ -13,6 +13,10 @@ var Statbet = Statbet || {};
 
 		events: {
 
+		},
+
+		initialize: function (options) {
+			this.players = new Statbet.Players()
 		},
 
 		onRender: function() {

@@ -6,6 +6,7 @@
     "foundation-icon-fonts": "latest",
     "backbone": "latest",
     "marionette": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "select2": "latest"
   }
 }
