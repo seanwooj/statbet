@@ -1,12 +1,14 @@
 var Statbet = Statbet || {};
 
 (function() {
+	'use strict';
+	
 	Statbet.BetFormView = Backbone.Marionette.ItemView.extend({
 		template: JST['bets/bet_form'],
 
 		ui: {
 			playerSearch: '.player-search',
-			
+
 		},
 
 		events: {
