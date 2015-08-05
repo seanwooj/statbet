@@ -10,8 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require_tree .
 
 // Vendored
 //= require bootstrap/js/collapse
+//= require jquery
+//= require underscore/underscore
+//= require backbone/backbone
+//= require marionette/lib/backbone.marionette
+
+// Application Code
+//= require_tree .
