@@ -19,4 +19,6 @@
 //= require marionette/lib/backbone.marionette
 
 // Application Code
-//= require_tree .
+//= require statbet
+//= require_tree ./models
+//= require_tree ./views
