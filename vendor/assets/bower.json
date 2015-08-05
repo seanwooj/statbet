@@ -3,6 +3,9 @@
   "dependencies": {
     "bootstrap-sass": "latest",
     "bootstrap": "latest",
-    "foundation-icon-fonts": "latest"
+    "foundation-icon-fonts": "latest",
+    "backbone": "latest",
+    "marionette": "latest",
+    "underscore": "latest"
   }
 }

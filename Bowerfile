@@ -4,3 +4,6 @@
 asset 'bootstrap-sass'
 asset 'bootstrap'
 asset 'foundation-icon-fonts'
+asset 'backbone'
+asset 'marionette'
+asset 'underscore'
