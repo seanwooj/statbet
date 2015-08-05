@@ -6,7 +6,17 @@ class BetsController < ApplicationController
 
   def create
     @bet = Bet.create!(bet_params)
-    redirect_to new_bet_path
+    respond_to do |format|
+      format.json { render :json => @bet }
+    end
+  end
+
+  def show
+    @bet = Bet.find(params[:id])
+
+    respond_to do |format|
+      format.json { render :json => @bet }
+    end
   end
 
   def appropriate_bet_metrics
