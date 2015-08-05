@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :players, :only => [:index]
+  resources :players, :only => [:index, :show]
   resources :teams, :only => [:show]
 end
