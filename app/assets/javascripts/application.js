@@ -18,6 +18,8 @@
 //= require backbone/backbone
 //= require marionette/lib/backbone.marionette
 
+//= require select2/dist/js/select2.js
+
 // Application Code
 //= require statbet
 //= require_tree ../templates

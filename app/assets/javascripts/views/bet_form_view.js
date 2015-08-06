@@ -1,3 +1,5 @@
+// Globals: select2, $
+
 var Statbet = Statbet || {};
 
 (function() {
@@ -16,7 +18,20 @@ var Statbet = Statbet || {};
 		},
 
 		initialize: function (options) {
-			this.players = new Statbet.Players()
+			this.players = new Statbet.Players();
+			this.listenToOnce(this.players, 'sync', this.instantiatePlayerSelect);
+		},
+
+		instantiatePlayerSelect: function () {
+			// instantiate the select2 plugin
+			this.$(this.ui.playerSearch).select2({
+				placeholder: 'Select a player',
+				data: this.select2ifyPlayers(),
+			});
+		},
+
+		select2ifyPlayers: function () {
+			var data = this.players.toJSON();
 		},
 
 		onRender: function() {
