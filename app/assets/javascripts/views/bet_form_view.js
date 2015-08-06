@@ -26,7 +26,7 @@ var Statbet = Statbet || {};
 
 		initialize: function (options) {
 			this.players = new Statbet.Players();
-			this.betMetrics = new
+			this.betMetrics = new Statbet.BetMetrics();
 			this.listenToOnce(this.players, 'sync', this.instantiatePlayerSelect);
 			this.instantiatePrePopulatedSelects();
 		},
@@ -54,10 +54,28 @@ var Statbet = Statbet || {};
 			return data;
 		},
 
+		select2ifyBetMetrics: function (betMetrics) {
+			var data = betMetrics.toJSON();
+			data = _.map(data, function(value, index){
+				return { id: value.metric, text: value.metric };
+			});
+			return data;
+		},
+
 		playerSelectHandler: function (ev) {
 			var playerId = this.$(this.ui.playerSearch).val()
-			this.players.get(playerId);
-
+			var player = this.players.get(playerId);
+			var position = player.get('position');
+			this.betMetrics.fetch({
+				data: {
+					position: position
+				},
+				success: function (betMetrics) {
+					this.$(this.ui.betMetric).select2({
+						data: this.select2ifyBetMetrics(betMetrics)
+					})
+				}.bind(this)
+			});
 		},
 
 		onRender: function() {

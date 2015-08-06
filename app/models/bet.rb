@@ -20,33 +20,33 @@ class Bet < ActiveRecord::Base
 
   # Quarterback Metrics
   QB_BET_METRICS = [
-    :completions,
-    :passing_yards,
-    :passing_touchdowns,
-    :interceptions_thrown,
-    :sacks,
-    :fumbles_lost,
-    :passer_rating
+    {:metric => 'completions'},
+    {:metric => 'passing_yards'},
+    {:metric => 'passing_touchdowns'},
+    {:metric => 'interceptions_thrown'},
+    {:metric => 'sacks'},
+    {:metric => 'fumbles_lost'},
+    {:metric => 'passer_rating'}
   ]
 
   # Runningback Metrics
   RB_BET_METRICS = [
-    :carries,
-    :rushing_yards,
-    :average_yards_per_carry,
-    :rushing_touchdowns,
-    :longest_run,
-    :fumbles_lost
+    {:metric => 'carries'},
+    {:metric => 'rushing_yards'},
+    {:metric => 'average_yards_per_carry'},
+    {:metric => 'rushing_touchdowns'},
+    {:metric => 'longest_run'},
+    {:metric => 'fumbles_lost'}
   ]
 
   # Wide Receiver and Tight End Metrics
   WR_TE_BET_METRICS = [
-    :receptions,
-    :receiving_yards,
-    :average_yards_per_reception,
-    :receiving_touchdowns,
-    :longest_reception,
-    :fumbles_lost
+    {:metric => 'receptions'},
+    {:metric => 'receiving_yards'},
+    {:metric => 'average_yards_per_reception'},
+    {:metric => 'receiving_touchdowns'},
+    {:metric => 'longest_reception'},
+    {:metric => 'fumbles_lost'}
   ]
 
   ALL_METRICS = (QB_BET_METRICS + RB_BET_METRICS + WR_TE_BET_METRICS).uniq

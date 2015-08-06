@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   resources :players, :only => [:index, :show]
   resources :teams, :only => [:show]
+  get 'bet_metrics' => "bet_metrics#get_by_position"
 end
