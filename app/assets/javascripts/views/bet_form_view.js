@@ -1,4 +1,4 @@
-// Globals: select2, $
+// Globals: select2, $, _
 
 var Statbet = Statbet || {};
 
@@ -32,6 +32,13 @@ var Statbet = Statbet || {};
 
 		select2ifyPlayers: function () {
 			var data = this.players.toJSON();
+			// this is horrible double iteration, but i guess we need to do it for now
+			// until i know what else to do.,
+			data = _.map(data, function(value, index) {
+				return {id: value.id, text: value.first_name + ' ' + value.last_name }
+			});
+
+			return data;
 		},
 
 		onRender: function() {
