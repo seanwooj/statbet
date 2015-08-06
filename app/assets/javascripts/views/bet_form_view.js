@@ -10,16 +10,29 @@ var Statbet = Statbet || {};
 
 		ui: {
 			playerSearch: '.player-search',
-
+			comparison: '.comparison',
+			betMetricAmount: '.bet-metric-amount',
+			betMetric: '.bet-metric',
+			startWeek: '.start-week',
+			endWeek: '.end-week',
+			number: '.number',
+			submit: '.submit-bet'
 		},
 
 		events: {
-
+			// select2 events can be put in the events hash and they work!
+			'select2:select @ui.playerSearch': 'playerSelectHandler'
 		},
 
 		initialize: function (options) {
 			this.players = new Statbet.Players();
+			this.betMetrics = new
 			this.listenToOnce(this.players, 'sync', this.instantiatePlayerSelect);
+			this.instantiatePrePopulatedSelects();
+		},
+
+		instantiatePrePopulatedSelects: function () {
+			this.$(this.ui.comparison).select2();
 		},
 
 		instantiatePlayerSelect: function () {
@@ -39,6 +52,12 @@ var Statbet = Statbet || {};
 			});
 
 			return data;
+		},
+
+		playerSelectHandler: function (ev) {
+			var playerId = this.$(this.ui.playerSearch).val()
+			this.players.get(playerId);
+
 		},
 
 		onRender: function() {
