@@ -6,7 +6,7 @@ var Statbet = Statbet || {};
 	'use strict';
 
 	Statbet.BetsView = Backbone.Marionette.CollectionView.extend({
-		template: JST['bets/bet'],
+		childView: Statbet.BetView,
 
 		ui: {
 

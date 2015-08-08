@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  root :to => 'static#test'
+  root :to => 'home#dashboard'
 
   resources :bets, :only => [:new, :create, :show, :update] do
     collection do

@@ -1,0 +1,47 @@
+%ul.nav.nav-tabs
+  %li.active{:role => "presentation"}
+    %a{:href => "#"} My Bets
+  %li{:role => "presentation"}
+    %a{:href => "#"} Open Bets
+  %li{:role => "presentation"}
+    %a{:href => "#"} Friends Bets
+
+.container-fluid
+  - @all_bets.each do |bet|
+    .bet-panel.panel.panel-bet.clearfix
+      .player-icon-wrapper
+        .player-icon
+          = image_tag 'mock/peyton.jpg'
+
+      .bet-content-wrapper
+        .player-info.clearfix
+          .player-name
+            = bet.player.full_name
+          .player-details
+            .player-position
+              = bet.player.position
+            .player-team
+              = bet.player.team.name # need to lazy load these as well.
+        .bet-metrics.clearfix
+          .bet-statement.clearfix
+            will have
+            %span.bet-more-less.bet-greater-than
+              = bet.comparison.humanize
+            %span.bet-numerical-metric
+              = bet.bet_metric_amount
+            %span.bet-metric-unit
+            = bet.bet_metric
+        .bet-week
+          week
+          = bet.start_week.week_in_season
+          to week
+          = bet.end_week.week_in_season
+
+        .user-information
+          posted by:
+          %a.user-link{:href => '#'} seanwooj
+
+        .bet-status.open
+          open
+      .bet-amount
+        = number_to_currency bet.amount
