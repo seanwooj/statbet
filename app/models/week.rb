@@ -1,5 +1,10 @@
 class Week < ActiveRecord::Base
 
+  # SCOPES
+  scope :upcoming, -> { where(:state => :upcoming) }
+  scope :current, -> { where('week_start < ? AND week_end > ?', Date.today, Date.today ) }
+
+
   # IMPORT FUNCTIONS
   def week_id= thing
   end

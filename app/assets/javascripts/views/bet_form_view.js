@@ -72,9 +72,10 @@ var Statbet = Statbet || {};
 				},
 				success: function (betMetrics) {
 					this.$(this.ui.betMetric).select2({
-						data: this.select2ifyBetMetrics(betMetrics)
+						data: this.select2ifyBetMetrics(betMetrics),
 					})
-				}.bind(this)
+				}.bind(this),
+				reset: true
 			});
 		},
 
@@ -83,6 +84,7 @@ var Statbet = Statbet || {};
 			// this isn't the best use of marionette (at all. in fact, this is probably
 			// egregiously bad. but you know, lack of time and such.)
 			$('.bet-form').append(this.el);
+			this.$('select').select2();
 		}
 	});
 })();

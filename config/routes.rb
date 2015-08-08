@@ -13,5 +13,11 @@ Rails.application.routes.draw do
 
   resources :players, :only => [:index, :show]
   resources :teams, :only => [:show]
+  resources :weeks, :only => [:index] do
+    collection do
+      get "valid_weeks"
+    end
+  end
+
   get 'bet_metrics' => "bet_metrics#get_by_position"
 end
