@@ -31,6 +31,14 @@ var Statbet = Statbet || {};
 			this.instantiatePrePopulatedSelects();
 		},
 
+		onRender: function() {
+			// use onRender function to append the element to the dom
+			// this isn't the best use of marionette (at all. in fact, this is probably
+			// egregiously bad. but you know, lack of time and such.)
+			$('.bet-form').append(this.el);
+			this.$('select').select2();
+		},
+
 		instantiatePrePopulatedSelects: function () {
 			this.$(this.ui.comparison).select2();
 		},
@@ -42,6 +50,32 @@ var Statbet = Statbet || {};
 				data: this.select2ifyPlayers(this.players),
 			});
 		},
+
+
+		playerSelectHandler: function (ev) {
+			var playerId = this.$(this.ui.playerSearch).val()
+			var player = this.players.get(playerId);
+			var position = player.get('position');
+			this.betMetrics.fetch({
+				data: {
+					position: position
+				},
+				success: function (betMetrics) {
+					this.$(this.ui.betMetric).select2({
+						data: this.select2ifyBetMetrics(betMetrics),
+					})
+				}.bind(this),
+				reset: true
+			});
+		},
+
+		// =================================================================
+		// SELECT2 DATA HELPER METHODS
+		//
+		// Helper functions to put the model data in the correct form
+		// that select2 requires. this may not be necessary (eg. select2 has
+		// some functionality that i'm not aware of to fix the data) but
+		// for now, at least some refactored code here
 
 		select2ifyData: function(data, desiredText, desiredValue) {
 			var data = data.toJSON();
@@ -61,31 +95,7 @@ var Statbet = Statbet || {};
 
 		select2ifyWeeks: function(weeks) {
 			return this.select2ifyData(weeks, 'week_in_season', 'id');
-		},
-
-		playerSelectHandler: function (ev) {
-			var playerId = this.$(this.ui.playerSearch).val()
-			var player = this.players.get(playerId);
-			var position = player.get('position');
-			this.betMetrics.fetch({
-				data: {
-					position: position
-				},
-				success: function (betMetrics) {
-					this.$(this.ui.betMetric).select2({
-						data: this.select2ifyBetMetrics(betMetrics),
-					})
-				}.bind(this),
-				reset: true
-			});
-		},
-
-		onRender: function() {
-			// use onRender function to append the element to the dom
-			// this isn't the best use of marionette (at all. in fact, this is probably
-			// egregiously bad. but you know, lack of time and such.)
-			$('.bet-form').append(this.el);
-			this.$('select').select2();
 		}
+
 	});
 })();
