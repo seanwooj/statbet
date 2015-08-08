@@ -39,27 +39,28 @@ var Statbet = Statbet || {};
 			// instantiate the select2 plugin
 			this.$(this.ui.playerSearch).select2({
 				placeholder: 'Select a player',
-				data: this.select2ifyPlayers(),
+				data: this.select2ifyPlayers(this.players),
 			});
 		},
 
-		select2ifyPlayers: function () {
-			var data = this.players.toJSON();
-			// this is horrible double iteration, but i guess we need to do it for now
-			// until i know what else to do.,
-			data = _.map(data, function(value, index) {
-				return {id: value.id, text: value.first_name + ' ' + value.last_name }
+		select2ifyData: function(data, desiredText, desiredValue) {
+			var data = data.toJSON();
+			data = _.map(data, function(value, index){
+				return { id: value[desiredValue], text: value[desiredText]};
 			});
+			return data
+		},
 
-			return data;
+		select2ifyPlayers: function (players) {
+			return this.select2ifyData(players, 'full_name', 'id');
 		},
 
 		select2ifyBetMetrics: function (betMetrics) {
-			var data = betMetrics.toJSON();
-			data = _.map(data, function(value, index){
-				return { id: value.metric, text: value.metric };
-			});
-			return data;
+			return this.select2ifyData(betMetrics, 'metric', 'metric');
+		},
+
+		select2ifyWeeks: function(weeks) {
+			return this.select2ifyData(weeks, 'week_in_season', 'id');
 		},
 
 		playerSelectHandler: function (ev) {
