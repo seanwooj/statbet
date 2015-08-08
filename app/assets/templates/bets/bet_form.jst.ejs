@@ -1,13 +1,13 @@
 <form>
-	<select class="player-search"></select>
-	<select class="comparison">
+	<select class="player-search" name="player_id"></select>
+	<select class="comparison" name="comparison">
 		<option value='more_than'>more than</option>
 		<option value='less_than'>less than</option>
 	</select>
-	<input type="number" class="bet-metric-amount">
-	<select class="bet-metric"></select>
-	<select class="start-week week-select"></select>
-	<select class="end-week week-select"></select>
-	<input type="number" class="amount">
+	<input type="number" class="betmetric-amount" name="bet_metric_amount">
+	<select class="bet-metric" name="bet_metric"></select>
+	<select class="start-week week-select" name="start_week_id"></select>
+	<select class="end-week week-select" name="end_week_id"></select>
+	<input type="number" class="amount" name="amount">
 	<input type="submit" class="submit-bet">
 </form>

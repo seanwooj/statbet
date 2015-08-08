@@ -8,6 +8,7 @@
     "marionette": "latest",
     "underscore": "latest",
     "select2": "latest",
-    "jquery.serializeJSON": "latest"
+    "jquery.serializeJSON": "latest",
+    "backbone.csrf": "latest"
   }
 }

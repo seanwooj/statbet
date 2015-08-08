@@ -98,7 +98,11 @@ var Statbet = Statbet || {};
 		},
 
 		submitHandler: function (ev) {
-			debugger;
+			ev.preventDefault();
+			var csrfToken = $('meta[name="csrf-token"]');
+			var data = this.$(this.ui.form).serializeJSON();
+			this.model.set(data);
+			this.model.save();
 		},
 
 		// =================================================================

@@ -8,7 +8,6 @@ class BetsController < ApplicationController
     @bet = Bet.create!(bet_params)
     respond_to do |format|
       format.json { render :json => @bet }
-      format.html { redirect_to new_bet_path }
     end
   end
 
