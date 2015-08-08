@@ -17,6 +17,7 @@
 //= require underscore/underscore
 //= require backbone/backbone
 //= require marionette/lib/backbone.marionette
+//= require jquery.serializeJSON
 
 //= require select2/dist/js/select2.js
 

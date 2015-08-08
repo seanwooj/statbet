@@ -1,4 +1,4 @@
-// Globals: select2, $, _
+// Globals: select2, $, _, 'jquery.serializeJSON'
 
 var Statbet = Statbet || {};
 
@@ -78,6 +78,9 @@ var Statbet = Statbet || {};
 		//
 
 		playerSelectHandler: function (ev) {
+			// THIS STILL DOESN'T WORK PROPERLY
+			// IT DOES NOT RESET THE DATA THAT
+			// MIGHT BE FOR A DIFFERENT TYPE OF PLAYER
 			var playerId = this.$(this.ui.playerSearch).val()
 			var player = this.players.get(playerId);
 			var position = player.get('position');

@@ -7,6 +7,7 @@
     "backbone": "latest",
     "marionette": "latest",
     "underscore": "latest",
-    "select2": "latest"
+    "select2": "latest",
+    "jquery.serializeJSON": "latest"
   }
 }
