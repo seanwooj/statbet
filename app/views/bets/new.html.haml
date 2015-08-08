@@ -2,5 +2,7 @@
 
 
 :javascript
-  Statbet.betFormView = new Statbet.BetFormView;
+  Statbet.betFormView = new Statbet.BetFormView({
+  	model: new Statbet.Bet()
+  });
   Statbet.betFormView.render();

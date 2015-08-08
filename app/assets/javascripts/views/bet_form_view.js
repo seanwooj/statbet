@@ -16,20 +16,30 @@ var Statbet = Statbet || {};
 			startWeek: '.start-week',
 			endWeek: '.end-week',
 			number: '.number',
-			submit: '.submit-bet'
+			submit: '.submit-bet',
+			form: 'form'
 		},
 
 		events: {
 			// select2 events can be put in the events hash and they work!
-			'select2:select @ui.playerSearch': 'playerSelectHandler'
+			'select2:select @ui.playerSearch': 'playerSelectHandler',
+			'submit': 'submitHandler'
 		},
 
 		initialize: function (options) {
+			// instantiate all of the collections that we need
 			this.players = new Statbet.Players();
 			this.betMetrics = new Statbet.BetMetrics();
+			this.weeks = new Statbet.Weeks();
+
+			// set listeners to populate things once the data is pulled in.
 			this.listenToOnce(this.players, 'sync', this.instantiatePlayerSelect);
-			this.instantiatePrePopulatedSelects();
+			this.listenToOnce(this.weeks, 'sync', this.instantiateWeekSelect);
 		},
+
+		// ===========================================================
+		// INSTANTIATION METHODS
+		//
 
 		onRender: function() {
 			// use onRender function to append the element to the dom
@@ -37,10 +47,6 @@ var Statbet = Statbet || {};
 			// egregiously bad. but you know, lack of time and such.)
 			$('.bet-form').append(this.el);
 			this.$('select').select2();
-		},
-
-		instantiatePrePopulatedSelects: function () {
-			this.$(this.ui.comparison).select2();
 		},
 
 		instantiatePlayerSelect: function () {
@@ -51,6 +57,25 @@ var Statbet = Statbet || {};
 			});
 		},
 
+		instantiateWeekSelect: function () {
+			this.$(this.ui.startWeek).select2({
+				placeholder: 'Select a week',
+				data: this.select2ifyWeeks(this.weeks)
+			});
+
+			// don't know why picking a single selector won't work
+			// so apparently we have to duplicate this. will look into
+			// why that is so later.
+
+			this.$(this.ui.endWeek).select2({
+				placeholder: 'Select a week',
+				data: this.select2ifyWeeks(this.weeks)
+			});
+		},
+
+		// ===========================================================
+		// HANDLER METHODS
+		//
 
 		playerSelectHandler: function (ev) {
 			var playerId = this.$(this.ui.playerSearch).val()
@@ -67,6 +92,10 @@ var Statbet = Statbet || {};
 				}.bind(this),
 				reset: true
 			});
+		},
+
+		submitHandler: function (ev) {
+			debugger;
 		},
 
 		// =================================================================
