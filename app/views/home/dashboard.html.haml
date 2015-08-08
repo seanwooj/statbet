@@ -30,7 +30,7 @@
             %span.bet-numerical-metric
               = bet.bet_metric_amount
             %span.bet-metric-unit
-            = bet.bet_metric
+            = bet.bet_metric.humanize
         .bet-week
           week
           = bet.start_week.week_in_season
@@ -39,7 +39,8 @@
 
         .user-information
           posted by:
-          %a.user-link{:href => '#'} seanwooj
+          - # we need to add user names as we don't want to reveal a user's email if we don't have to.
+          = link_to bet.creator.email, '#'
 
         .bet-status.open
           open

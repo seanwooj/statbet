@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :bets
+  has_many :created_bets, :class_name => 'Bet', :foreign_key => 'creator_id'
 
 end

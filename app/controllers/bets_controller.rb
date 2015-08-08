@@ -5,7 +5,9 @@ class BetsController < ApplicationController
   end
 
   def create
-    @bet = Bet.create!(bet_params)
+    # we use the created_bets method to make sure that the creator
+    # id gets set correctly
+    @bet = current_user.created_bets.create!(bet_params)
     respond_to do |format|
       format.json { render :json => @bet }
     end
