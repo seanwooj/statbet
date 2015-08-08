@@ -19,6 +19,15 @@ class BetsController < ApplicationController
     end
   end
 
+  def update
+    @bet = Bet.find(params[:id])
+    @bet.update_attributes(bet_params)
+
+    respond_to do |format|
+      format.json { render :json => @bet }
+    end
+  end
+
   def appropriate_bet_metrics
     @metrics = Bet.get_appropriate_metric(params[:player_type])
 

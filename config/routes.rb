@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root :to => 'static#test'
 
-  resources :bets, :only => [:new, :create, :show] do
+  resources :bets, :only => [:new, :create, :show, :update] do
     collection do
       get "appropriate_bet_metrics" => "bets#appropriate_bet_metrics"
     end
