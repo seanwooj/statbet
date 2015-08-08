@@ -13,6 +13,7 @@
 
 // Vendored
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap/js/collapse
 //= require underscore/underscore
 //= require backbone/backbone

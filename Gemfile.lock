@@ -256,6 +256,7 @@ DEPENDENCIES
   friendly_id (~> 5.1.0)
   haml-rails
   jbuilder (~> 2.0)
+  jquery-rails
   paper_trail (~> 4.0.0.rc)
   pg
   rails (= 4.2.0)
