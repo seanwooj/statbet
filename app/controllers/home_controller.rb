@@ -6,4 +6,5 @@ class HomeController < ApplicationController
 		@accepted_bets = '' # this doesn't exist yet
 	end
 
+
 end
