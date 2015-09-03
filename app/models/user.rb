@@ -10,7 +10,18 @@ class User < ActiveRecord::Base
   after_create :build_wallet!
 
 
+  #################
+  # FRIENDS STUFF #
+  #################
+  # this should eventually be moved to a friends module
 
+  def friends_bets
+    # this is a resource intensive method; it should be changed to something
+    # quicker as soon as possible.
+
+    # actually, i need to set the friends system in place first.
+    # whoops.
+  end
 
   private
 

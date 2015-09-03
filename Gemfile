@@ -11,6 +11,7 @@ gem 'paper_trail', '~> 4.0.0.rc'
 gem 'pg'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
+gem 'state_machines-activerecord'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'jbuilder', '~> 2.0'

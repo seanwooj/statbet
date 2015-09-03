@@ -55,6 +55,10 @@
             <%= link_to 'Login', new_user_session_path %>
           <% end %>
         </li>
+
+        <li>
+          <%= link_to "Wallet: #{number_to_currency current_user.wallet.available_funds}", '#' %>
+        </li>
       </ul>
     </div>
   </div>

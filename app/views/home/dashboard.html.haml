@@ -1,13 +1,13 @@
 %ul.nav.nav-tabs
-  %li.active{:role => "presentation"}
-    %a{:href => "#"} My Bets
   %li{:role => "presentation"}
-    %a{:href => "#"} Open Bets
+    %a{:href => "?bets=mine"} My Bets
   %li{:role => "presentation"}
-    %a{:href => "#"} Friends Bets
+    %a{:href => "?bets=open"} Open Bets
+  %li{:role => "presentation"}
+    %a{:href => "?bets=friends"} Friends Bets
 
 .container-fluid
-  - @all_bets.each do |bet|
+  - @bets.each do |bet|
     .bet-panel.panel.panel-bet.clearfix
       .player-icon-wrapper
         .player-icon
@@ -46,3 +46,4 @@
           open
       .bet-amount
         = number_to_currency bet.amount
+
